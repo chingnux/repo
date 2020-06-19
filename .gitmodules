@@ -4,3 +4,12 @@
 [submodule "python-sphinxcontrib-ditaa"]
 	path = python-sphinxcontrib-ditaa
 	url = https://aur.archlinux.org/python-sphinxcontrib-ditaa.git
+[submodule "libnxml"]
+	path = libnxml
+	url = https://aur.archlinux.org/libnxml.git
+[submodule "libmrss"]
+	path = libmrss
+	url = https://aur.archlinux.org/libmrss.git
+[submodule "rsstail"]
+	path = rsstail
+	url = https://aur.archlinux.org/rsstail.git
