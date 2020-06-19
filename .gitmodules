@@ -1,3 +1,6 @@
 [submodule "screen-message"]
 	path = screen-message
 	url = https://aur.archlinux.org/screen-message.git
+[submodule "python-sphinxcontrib-ditaa"]
+	path = python-sphinxcontrib-ditaa
+	url = https://aur.archlinux.org/python-sphinxcontrib-ditaa.git
