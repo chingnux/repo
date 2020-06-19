@@ -16,3 +16,6 @@
 [submodule "mahjong"]
 	path = mahjong
 	url = https://aur.archlinux.org/mahjong.git
+[submodule "networkmanager-l2tp"]
+	path = networkmanager-l2tp
+	url = https://aur.archlinux.org/networkmanager-l2tp.git
