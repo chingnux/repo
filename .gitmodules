@@ -13,3 +13,6 @@
 [submodule "rsstail"]
 	path = rsstail
 	url = https://aur.archlinux.org/rsstail.git
+[submodule "mahjong"]
+	path = mahjong
+	url = https://aur.archlinux.org/mahjong.git
