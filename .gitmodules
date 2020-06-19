@@ -19,3 +19,12 @@
 [submodule "networkmanager-l2tp"]
 	path = networkmanager-l2tp
 	url = https://aur.archlinux.org/networkmanager-l2tp.git
+[submodule "trousers"]
+	path = trousers
+	url = https://aur.archlinux.org/trousers.git
+[submodule "opencryptoki"]
+	path = opencryptoki
+	url = https://aur.archlinux.org/opencryptoki.git
+[submodule "tpm-tools"]
+	path = tpm-tools
+	url = https://aur.archlinux.org/tpm-tools.git
