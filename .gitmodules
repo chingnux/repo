@@ -1,0 +1,3 @@
+[submodule "screen-message"]
+	path = screen-message
+	url = https://aur.archlinux.org/screen-message.git
