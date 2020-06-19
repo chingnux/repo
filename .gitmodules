@@ -28,3 +28,12 @@
 [submodule "tpm-tools"]
 	path = tpm-tools
 	url = https://aur.archlinux.org/tpm-tools.git
+[submodule "tuxpaint"]
+	path = tuxpaint
+	url = https://aur.archlinux.org/tuxpaint.git
+[submodule "tuxpaint-config"]
+	path = tuxpaint-config
+	url = https://aur.archlinux.org/tuxpaint-config.git
+[submodule "tuxpaint-stamps"]
+	path = tuxpaint-stamps
+	url = https://aur.archlinux.org/tuxpaint-stamps.git
