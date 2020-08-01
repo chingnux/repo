@@ -1,0 +1,52 @@
+# Maintainer: Allan McRae <allan@archlinux.org>
+# Contributor: judd <jvinet@zeroflux.org>
+
+pkgname=make-4.2.1
+pkgver=4.2.1
+pkgrel=4
+pkgdesc="GNU make utility to maintain groups of programs"
+arch=('x86_64')
+url="https://www.gnu.org/software/make"
+license=('GPL3')
+depends=('glibc' 'guile')
+source=(https://ftp.gnu.org/gnu/make/make-${pkgver}.tar.bz2
+        guile-2.2.patch
+        make-4.2.1-glob1.patch
+        make-4.2.1-glob2.patch
+        make-4.2.1-test-driver.patch)
+sha256sums=('d6e262bf3601b42d2b1e4ef8310029e1dcf20083c5446b4b7aa67081fdffc589'
+            '74119d4fe5c69fe225bf6b3f187a32e372db104f49e92207f309e519eebfd79d'
+            'fe5b60d091c33f169740df8cb718bf4259f84528b42435194ffe0dd5b79cd125'
+            '51fa6118351b6e069d2be0b9c298055a1a8157eeac62cbb2403115eb2ebf4201'
+            '3ac730a94776c842368217bf8180b302e0d0851c3d520d9426915b9047679fa9')
+
+prepare() {
+  cd make-${pkgver}
+  patch -p1 -i ${srcdir}/guile-2.2.patch
+
+  #https://git.savannah.gnu.org/cgit/make.git/patch/?id=193f1e81edd6b1b56b0eb0ff8aa4b41c7b4257b4
+  patch -p1 -i ${srcdir}/make-4.2.1-glob1.patch
+  #https://git.savannah.gnu.org/cgit/make.git/patch/?id=48c8a116a914a325a0497721f5d8b58d5bba34d4
+  patch -p1 -i ${srcdir}/make-4.2.1-glob2.patch
+
+  patch -p1 -i ${srcdir}/make-4.2.1-test-driver.patch
+
+  autoreconf -fi
+}
+
+build() {
+  cd make-${pkgver}
+  ./configure --prefix=/usr --program-suffix=-$pkgver
+  make
+}
+
+# check() {
+#   cd make-${pkgver}
+#   make -k check
+# }
+
+package() {
+  cd make-${pkgver}
+  # Just install the binaries, so that it can live along-side with the normal make
+  make DESTDIR=${pkgdir} install-exec
+}
