@@ -3,7 +3,7 @@
 
 pkgname=coreboot-utils
 pkgver=4.12
-pkgrel=1
+pkgrel=20201005
 pkgdesc='Tools and utilities to work with coreboot firmware'
 url='https://www.coreboot.org/'
 license=(GPL)
@@ -13,8 +13,10 @@ optdepends=("python: me_cleaner support")
 # for latest code, run:
 # git diff 4.9 util/cbfstool/ util/ifdtool/ util/nvramtool/ util/inteltool/ util/intelmetool/ util/superiotool/ util/cbmem/ util/romcc/ util/ectool/ util/intelvbttool/ util/autoport/ util/me_cleaner/
 source=("https://coreboot.org/releases/coreboot-${pkgver}.tar.xz"
+	coreboot-utils-20201005.patch
         autoport-tool-paths.patch)
 sha256sums=('edcad000ee9b73183c396ea76155629b3d27c693e0f1ae83e3424c4d936e2be2'
+	'0e2abefdcaccd68feff2802c1b1e07a0c04b9e831fb5da70920e5aab5fc129ad'
 	'5136f8ae6c690501b483243a33b91dc978971cf23bcf48c27bdca845db53bdb1')
 
 BUILD_AUTOPORT=y
@@ -25,7 +27,7 @@ fi
 
 prepare() {
 	cd "${srcdir}/coreboot-${pkgver}"
-	#patch -p1 -i "$srcdir/util_latest.patch"
+	patch -p1 -i "$srcdir/coreboot-utils-20201005.patch"
 	patch -p1 -i "$srcdir/autoport-tool-paths.patch"
 	#cd 3rdparty/vboot
 	#patch -p1 -i "$srcdir/vboot_latest.patch"
