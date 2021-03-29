@@ -34,3 +34,9 @@
 [submodule "tuxpaint-stamps"]
 	path = tuxpaint-stamps
 	url = https://aur.archlinux.org/tuxpaint-stamps.git
+[submodule "tcl85"]
+	path = tcl85
+	url = https://aur.archlinux.org/tcl85.git
+[submodule "tk85"]
+	path = tk85
+	url = https://aur.archlinux.org/tk85.git
