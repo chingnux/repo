@@ -13,7 +13,7 @@ depends=('python')
 makedepends=('python-setuptools' 'python-sphinx')
 provides=("python-$_name")
 conflicts=("python-$_name")
-source=("git+https://gitea.com/chingnux/${_name}.git#commit=a33eb813c")
+source=("git+https://gitea.com/chingnux/${_name}.git#commit=605a5c33")
 sha256sums=('SKIP')
 
 build() {
