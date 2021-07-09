@@ -31,3 +31,6 @@
 [submodule "tk85"]
 	path = tk85
 	url = https://aur.archlinux.org/tk85.git
+[submodule "pmbootstrap"]
+	path = pmbootstrap
+	url = https://aur.archlinux.org/pmbootstrap.git
