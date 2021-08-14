@@ -34,3 +34,6 @@
 [submodule "pmbootstrap"]
 	path = pmbootstrap
 	url = https://aur.archlinux.org/pmbootstrap.git
+[submodule "zydis"]
+	path = zydis
+	url = https://aur.archlinux.org/zydis.git
