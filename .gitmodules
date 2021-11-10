@@ -37,3 +37,6 @@
 [submodule "zydis"]
 	path = zydis
 	url = https://aur.archlinux.org/zydis.git
+[submodule "zeal"]
+	path = zeal
+	url = https://aur.archlinux.org/zeal.git
