@@ -3,7 +3,7 @@
 
 _name=archinstall
 pkgname=archinstall-chingnux
-pkgver=2021.07
+pkgver=2021.11
 pkgrel=1
 pkgdesc="Just another guided/automated Arch Linux installer with a twist"
 arch=('any')
@@ -13,7 +13,7 @@ depends=('python')
 makedepends=('python-setuptools' 'python-sphinx')
 provides=("python-$_name")
 conflicts=("python-$_name")
-source=("git+https://gitea.com/chingnux/${_name}.git#commit=605a5c33")
+source=("git+https://gitea.com/chingnux/${_name}.git#commit=2dc71feeb")
 sha256sums=('SKIP')
 
 build() {
