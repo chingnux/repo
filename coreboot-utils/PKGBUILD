@@ -2,7 +2,7 @@
 # Maintainer: Iru Cai <mytbk920423@gmail.com>
 
 pkgname=coreboot-utils
-pkgver=4.14
+pkgver=4.15
 pkgrel=1
 pkgdesc='Tools and utilities to work with coreboot firmware'
 url='https://www.coreboot.org/'
@@ -14,8 +14,8 @@ optdepends=("python: me_cleaner support")
 # git diff 4.12 util/cbfstool/ util/ifdtool/ util/nvramtool/ util/inteltool/ util/intelmetool/ util/superiotool/ util/cbmem/ util/romcc/ util/ectool/ util/intelvbttool/ util/autoport/ util/me_cleaner/
 source=("https://coreboot.org/releases/coreboot-${pkgver}.tar.xz"
         autoport-tool-paths.patch)
-sha256sums=('d907379b727561d7ddd1d80b2fabaa373db00c9805719116f591cbc948173c6e'
-	'5136f8ae6c690501b483243a33b91dc978971cf23bcf48c27bdca845db53bdb1')
+sha256sums=('20e6aaa6dd0eaec7753441c799711d1b4630e3ca709536386f2242ac2c8a1ec5'
+            '5136f8ae6c690501b483243a33b91dc978971cf23bcf48c27bdca845db53bdb1')
 
 BUILD_AUTOPORT=y
 
@@ -45,7 +45,7 @@ build() {
   make -C intelvbttool
   if [ "$BUILD_AUTOPORT" == y ]; then
 	  cd autoport
-	  GO111MODULE=off go build -trimpath
+	  go build -trimpath
   fi
 }
 
