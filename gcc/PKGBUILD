@@ -21,7 +21,7 @@ _libdir=usr/lib/gcc/$CHOST/${pkgver%%+*}
 # _commit=6beb39ee6c465c21d0cc547fd66b445100cdcc35
 # source=(git://gcc.gnu.org/git/gcc.git#commit=$_commit
 source=(https://sourceware.org/pub/gcc/releases/gcc-${pkgver}/gcc-${pkgver}.tar.xz{,.sig}
-        http://isl.gforge.inria.fr/isl-${_islver}.tar.xz
+        https://libisl.sourceforge.io/isl-${_islver}.tar.xz
         c89 c99
         gdc_phobos_path.patch
         fs64270.patch
