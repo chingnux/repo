@@ -1,6 +1,10 @@
 ChinGNUx repository
 ===========================
 
+This is the package repository of the `ChinGNUx <https://chingnux.org/>`_ project.
+
+The main source repository of this project is at https://notabug.org/chingnux/repo.
+
 The packages in this repository must meet these requirements:
 
 1. Use fixed version packages, do not use VCS (e.g. -git) packages.
