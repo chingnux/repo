@@ -1,4 +1,4 @@
-# Maintainer:  Bartłomiej Piotrowski <bpiotrowski@archlinux.org>
+# Maintainer:  Iru Cai <vimacs.hacks@gmail.com>
 # Contributor: Allan McRae <allan@archlinux.org>
 
 # toolchain build order: linux-api-headers->glibc->binutils->gcc->binutils->glibc
@@ -18,8 +18,10 @@ replaces=(binutils-multilib)
 options=(staticlibs !distcc !ccache)
 #_commit=cb5f6a3e146cc70bc2d864989386df80acec5d3e
 #source=(git+https://sourceware.org/git/binutils-gdb.git#commit=$_commit)
-source=(https://ftp.gnu.org/gnu/binutils/binutils-$pkgver.tar.lz)
-sha256sums=('b05287b811bc3ab4beb8192f8b20673e378e9cfe70a3d634fc374e7939281425')
+source=(https://ftp.gnu.org/gnu/binutils/binutils-$pkgver.tar.lz
+        binutils-fix-empty-docs.patch)
+sha256sums=('b05287b811bc3ab4beb8192f8b20673e378e9cfe70a3d634fc374e7939281425'
+            'fac5043a210f512b441822fe6826c6165b95d348ce1a7882fc5e745cbfeae4fb')
 
 prepare() {
   [[ ! -d binutils-gdb ]] && ln -s binutils-$pkgver binutils-gdb
@@ -32,6 +34,13 @@ prepare() {
 
   # hack! - libiberty configure tests for header files using "$CPP $CPPFLAGS"
   sed -i "/ac_cpp=/s/\$CPPFLAGS/\$CPPFLAGS -O2/" libiberty/configure
+
+  rm -fv binutils/doc/*.1
+  rm -fv binutils/doc/cxxfilt.man
+  rm -fv gprof/*.1
+  rm -fv gas/doc/*.1
+  rm -fv ld/*.1
+  patch -p1 -i "${srcdir}/binutils-fix-empty-docs.patch"
 }
 
 build() {
