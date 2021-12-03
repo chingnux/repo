@@ -40,3 +40,12 @@
 [submodule "zeal"]
 	path = zeal
 	url = https://aur.archlinux.org/zeal.git
+[submodule "gprbuild-bootstrap"]
+	path = gprbuild-bootstrap
+	url = https://aur.archlinux.org/gprbuild-bootstrap.git
+[submodule "xmlada"]
+	path = xmlada
+	url = https://aur.archlinux.org/xmlada.git
+[submodule "gprbuild"]
+	path = gprbuild
+	url = https://aur.archlinux.org/gprbuild.git
