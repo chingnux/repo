@@ -1,0 +1,13 @@
+{
+	"keyboard-language": "us",
+	"mirror-region": "China",
+	"sys-language": "en_US",
+	"sys-encoding": "utf-8",
+	"profile": "chingnux-xfce",
+	"nic": { "NetworkManager": true },
+	"audio": "pipewire",
+	"kernels": ["linux"],
+	"timezone": "Asia/Shanghai",
+	"ntp": true,
+	"hostname": "chingnux"
+}

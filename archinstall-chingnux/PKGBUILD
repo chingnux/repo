@@ -3,7 +3,7 @@
 
 _name=archinstall
 pkgname=archinstall-chingnux
-pkgver=2021.11
+pkgver=2021.12
 pkgrel=1
 pkgdesc="Just another guided/automated Arch Linux installer with a twist"
 arch=('any')
@@ -13,8 +13,12 @@ depends=('python')
 makedepends=('python-setuptools' 'python-sphinx')
 provides=("python-$_name")
 conflicts=("python-$_name")
-source=("git+https://gitea.com/chingnux/${_name}.git#commit=2dc71feeb")
-sha256sums=('SKIP')
+source=("git+https://gitea.com/chingnux/${_name}.git#commit=8962ea0ca"
+        "chingnux.json"
+        "chingnux-install")
+b2sums=('SKIP'
+        'e03fafd9aa0d222b69cd77a8b321d5102991b3ac55d596277698f653cc0ac0c80aa883344d45b9e7d8211c9c2aa3fe57b092bffdfe0fd325a7c682a4ed40f185'
+        '5e8a94890851970fb9143638d1daaa7b9634a92eda7a3223a1a044af8c75d57fc929ca57bf1fb3af8eaf262702f8a0f3efe083e7cad12d3204a128fbd1808dde')
 
 build() {
         cd "$srcdir/$_name"
@@ -26,4 +30,6 @@ package() {
         cd "$srcdir/$_name"
         python setup.py install --root="${pkgdir}" --optimize=1 --skip-build
         install -vDm 644 docs/_build/man/$_name.1 -t "${pkgdir}/usr/share/man/man1/"
+        install -vDm 644 "${srcdir}/chingnux.json" -t "${pkgdir}/opt/"
+        install -vDm 755 "${srcdir}/chingnux-install" "${pkgdir}/usr/bin/"
 }
