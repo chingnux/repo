@@ -49,3 +49,15 @@
 [submodule "gprbuild"]
 	path = gprbuild
 	url = https://aur.archlinux.org/gprbuild.git
+[submodule "gnatcoll-xref"]
+	path = gnatcoll-xref
+	url = https://aur.archlinux.org/gnatcoll-xref.git
+[submodule "gnatcoll-sqlite"]
+	path = gnatcoll-sqlite
+	url = https://aur.archlinux.org/gnatcoll-sqlite.git
+[submodule "gnatcoll-core"]
+	path = gnatcoll-core
+	url = https://aur.archlinux.org/gnatcoll-core.git
+[submodule "gnatcoll-sql"]
+	path = gnatcoll-sql
+	url = https://aur.archlinux.org/gnatcoll-sql.git
