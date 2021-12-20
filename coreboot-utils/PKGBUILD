@@ -17,9 +17,9 @@ source=("https://coreboot.org/releases/coreboot-${pkgver}.tar.xz"
 sha256sums=('20e6aaa6dd0eaec7753441c799711d1b4630e3ca709536386f2242ac2c8a1ec5'
             '5136f8ae6c690501b483243a33b91dc978971cf23bcf48c27bdca845db53bdb1')
 
-BUILD_AUTOPORT=y
+HAS_GOLANG=y
 
-if [ "$BUILD_AUTOPORT" == y ]; then
+if [ "${HAS_GOLANG}" == y ]; then
 	makedepends=("${makedepends[@]}" go)
 fi
 
@@ -43,9 +43,11 @@ build() {
   make -C cbmem
   make -C ectool
   make -C intelvbttool
-  if [ "$BUILD_AUTOPORT" == y ]; then
-	  cd autoport
-	  go build -trimpath
+  if [ "$HAS_GOLANG" == y ]; then
+    cd autoport
+    go build -trimpath
+    cd ..
+    make -C intelp2m
   fi
 }
 
@@ -54,8 +56,8 @@ package() {
   install -m755 -d "$pkgdir/usr/bin" "$pkgdir/usr/share/man/man8"
   install -m755 -t "$pkgdir/usr/bin" ifdtool/ifdtool nvramtool/nvramtool inteltool/inteltool superiotool/superiotool cbmem/cbmem ectool/ectool intelmetool/intelmetool intelvbttool/intelvbttool cbfstool/cbfstool
   install -m755 "me_cleaner/me_cleaner.py" "$pkgdir/usr/bin/me_cleaner"
-  if [ "$BUILD_AUTOPORT" == y ]; then
-	  install -m755 -t "$pkgdir/usr/bin" autoport/autoport
+  if [ "${HAS_GOLANG}" == y ]; then
+	  install -m755 -t "$pkgdir/usr/bin" autoport/autoport intelp2m/intelp2m
   fi
   install -m644 -t "$pkgdir"/usr/share/man/man8 inteltool/inteltool.8
 
